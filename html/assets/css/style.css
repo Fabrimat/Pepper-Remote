@@ -1,0 +1,67 @@
+body { min-height: 100vh; }
+
+.no-select, body {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#tools {
+    width: 100%;
+}
+
+.joystick {
+    width:200px;
+    height:200px;
+}
+#joy-left {
+    position: absolute;
+    left: 3%;
+    bottom: 5%;
+    background-color: aquamarine;
+}
+#joy-center {
+    position: relative;
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    width: 50%;
+}
+#joy-right {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+    background-color: aquamarine;
+}
+.main-joystick {
+    border-radius: 10%;
+    width: 30%;
+    height: 40%;
+}
+.centered {
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.pose-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+footer {
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

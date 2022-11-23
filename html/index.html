@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="/libs/qimessaging/2/qimessaging.js"></script>
+    <title>Pepper Remote</title>
+</head>
+<body>
+<table id="tools" class="centered">
+    <tbody>
+    <tr>
+        <td>
+            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/LeftHand', 'LeftHand')">Give left hand</button>
+            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/ShowTablet', 'ShowTablet')">Show Tablet</button>
+            <button class="pose-button" type="button" onclick="setAlive(true)">Start Autonomous</button>
+        </td>
+        <td>
+            <div id="joy-center" class="joystick"></div>
+        </td>
+        <td>
+            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/RightHand', 'RightHand')">Give right hand</button>
+            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/HideTablet', 'HideTablet')">Hide Tablet</button>
+            <button class="pose-button" type="button" onclick="setAlive(false)">Stop Autonomous</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/Stand', 'Stand')">Stand</button>
+        </td>
+        <td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div id="joy-left" class="joystick main-joystick"></div>
+<div id="joy-right" class="joystick main-joystick"></div>
+<script type="text/javascript" src="assets/js/nipplejs.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+<footer class="centered">
+    © Copyright Fabrizio La Rosa - 2022
+</footer>
+</html>

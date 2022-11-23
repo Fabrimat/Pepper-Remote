@@ -165,21 +165,26 @@ setInterval(function () {
 
     let rotate = centerData.x;
     if (rotate !== 0 || !joyCenterZero) {
-        motion.move(0, 0, rotate*-1);
-        joyCenterZero = false;
-    }
-    if(rotate === 0) {
-        joyCenterZero = true;
+
+        if(rotate !== 0) {
+            motion.move(0, 0, rotate*-1);
+            joyCenterZero = false;
+        } else {
+            motion.stopMove();
+            joyCenterZero = false;
+        }
     }
 
     let moveX = rightData.x*-1;
     let moveY = rightData.y;
     if (moveX !== 0 || moveY !== 0 || !joyRightZero) {
-        motion.move(moveY, moveX, 0);
-        joyRightZero = false;
-    }
-    if (moveX + moveY === 0) {
-        joyRightZero = true;
+        if (moveX + moveY !== 0) {
+            motion.move(moveY, moveX, 0);
+            joyRightZero = false;
+        } else {
+            motion.stopMove();
+            joyRightZero = true;
+        }
     }
 
 }, 250);

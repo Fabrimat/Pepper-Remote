@@ -1,47 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="user-scalable=0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+    <link rel="stylesheet" type="text/css" href="assets/css/boostrap.css">
+
     <script src="/libs/qimessaging/2/qimessaging.js"></script>
     <title>Pepper Remote</title>
+
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">Pepper - Remote</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Controller</a></li>
+          <li class="nav-item"><a href="messages.html" class="nav-link">Messages</a></li>
+          <li class="nav-item"><a href="settings.html" class="nav-link">Settings</a></li>
+
+          <li class="nav-item"><a href="#" class="nav-link">Emotes</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        </ul>
+      </header>
+
+
 </head>
 <body>
+
+    <h1 class="text-center mt-2" >Remote - Controller</h1>
+
 <table id="tools" class="centered">
     <tbody>
     <tr>
         <td>
-            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/LeftHand', 'LeftHand')">Give left hand</button>
-            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/ShowTablet', 'ShowTablet')">Show Tablet</button>
-            <button class="pose-button" type="button" onclick="setAlive(true)">Start Autonomous</button>
+            <button class="btn btn-success m-1" type="button" onclick="raiseEvent('PepperRemote/LeftHand', 'LeftHand')">Give left hand</button>
+            <button class="btn btn-warning m-1" type="button" onclick="raiseEvent('PepperRemote/ShowTablet', 'ShowTablet')">Show Tablet</button>
+            <button class="btn btn-warning m-1" type="button" onclick="setAlive(true)">Start Autonomous</button>
         </td>
         <td>
-            <div id="joy-center" class="joystick"></div>
         </td>
         <td>
-            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/RightHand', 'RightHand')">Give right hand</button>
-            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/HideTablet', 'HideTablet')">Hide Tablet</button>
-            <button class="pose-button" type="button" onclick="setAlive(false)">Stop Autonomous</button>
+            <button class="btn btn-success m-1" type="button" onclick="raiseEvent('PepperRemote/RightHand', 'RightHand')">Give right hand</button>
+            <button class="btn btn-secondary m-1" type="button" onclick="raiseEvent('PepperRemote/HideTablet', 'HideTablet')">Hide Tablet</button>
+            <button class="btn btn-secondary m-1" type="button" onclick="setAlive(false)">Stop Autonomous</button>
         </td>
     </tr>
     <tr>
         <td>
         </td>
         <td>
-            <button class="pose-button" type="button" onclick="raiseEvent('PepperRemote/Stand', 'Stand')">Stand</button>
+            <button class="btn btn-danger" type="button" onclick="raiseEvent('PepperRemote/Stand', 'Stand')">Stand</button>
         </td>
         <td>
         </td>
     </tr>
     </tbody>
 </table>
-<div id="joy-left" class="joystick main-joystick"></div>
-<div id="joy-right" class="joystick main-joystick"></div>
+
+
+<div class="position-relative border-top m-3">
+    <div class="position-absolute top-0 start-0 m-3">
+            <h3 class="text-center">Head movement</h3>
+            <div id="joy-left" class="joystick main-joystick"></div>
+        </div>
+
+    <div class="position-absolute top-0 start-50 translate-middle-x m-3 ">
+            <h3 class="text-center">In-Place Rotation</h3>
+            <div id="joy-center" class="joystick"></div>
+    </div>
+
+    <div class="position-absolute top-0 end-0 m-3">
+        <h3 class="text-center">Body movement</h3>
+        <div id="joy-right" class="joystick main-joystick"></div>
+    </div>  
+      
+</div>
+
+
+
 <script type="text/javascript" src="assets/js/nipplejs.js"></script>
 <script src="assets/js/script.js"></script>
 </body>
-<footer class="centered">
-    © Copyright Fabrizio La Rosa - 2022
-</footer>
+
 </html>

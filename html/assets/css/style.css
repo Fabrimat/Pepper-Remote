@@ -19,9 +19,10 @@ body { min-height: 100vh; }
 }
 #joy-left {
     position: absolute;
-    left: 3%;
-    bottom: 5%;
-    background-color: aquamarine;
+    width: 200px;
+    margin-left: 20px;
+    height: 200px;
+    background-color: gray;
 }
 #joy-center {
     position: relative;
@@ -32,9 +33,11 @@ body { min-height: 100vh; }
 }
 #joy-right {
     position: absolute;
-    right: 3%;
-    bottom: 5%;
-    background-color: aquamarine;
+    width: 200px;
+    margin-right: 20px;
+
+    height: 200px;
+    background-color: gray;
 }
 .main-joystick {
     border-radius: 10%;

@@ -12,7 +12,7 @@
         <File name="modules" src=".idea/modules.xml" />
         <File name="workspace" src=".idea/workspace.xml" />
         <File name="style" src="html/assets/css/style.css" />
-        <File name="script" src="html/assets/js/script.js" />
+        <File name="script" src="html/assets/js/controller.js" />
         <File name="index" src="html/index.html" />
         <File name="nipplejs" src="html/assets/js/nipplejs.js" />
         <File name="" src=".gitignore" />

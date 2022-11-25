@@ -102,10 +102,10 @@ resetCenterData();
 resetRightData();
 
 function updateLeftData(data) {
-    data.force = Math.min(data.force, 3);
+    rightData.force = Math.min(data.force, 3);
 
-    leftData.x = Math.cos(data.angle.radian) * data.distance * data.force / 150;
-    leftData.y = Math.sin(data.angle.radian) * data.distance * data.force / 150;
+    leftData.x = Math.cos(data.angle.radian) * data.distance * rightData.force / 150;
+    leftData.y = Math.sin(data.angle.radian) * data.distance * rightData.force / 150;
 }
 function resetLeftData() {
     leftData.force = 0;
@@ -113,19 +113,21 @@ function resetLeftData() {
     leftData.y = 0;
 }
 function updateCenterData(data) {
-    centerData.x = Math.cos(data.angle.radian)*data.distance/50;
+    centerData.x = Math.cos(data.angle.radian) * data.distance / 50;
 }
 function resetCenterData() {
     centerData.x = 0;
 }
 function updateRightData(data) {
-    data.force = Math.min(data.force, 3);
+    rightData.force = Math.min(data.force, 3);
+    rightData.distance = data.distance;
 
-    rightData.x = Math.cos(data.angle.radian) *data.distance * data.force / 150;
-    rightData.y = Math.sin(data.angle.radian) *data.distance * data.force / 150;
+    rightData.x = Math.cos(data.angle.radian) * data.distance * rightData.force / 150;
+    rightData.y = Math.sin(data.angle.radian) * data.distance * rightData.force / 150;
 }
 function resetRightData() {
     rightData.force = 0;
+    rightData.distance = 0;
     rightData.x = 0;
     rightData.y = 0;
 }
@@ -146,7 +148,7 @@ setInterval(function () {
         changes = headX*-1;
         fractionMaxSpeed = Math.abs(headX);
 
-        motion.changeAngles(names, changes, fractionMaxSpeed/5);
+        motion.changeAngles(names, changes, 0.2);
         joyLeftZero = false;
     }
     if (headY !== 0 || !joyLeftZero) {
@@ -154,7 +156,7 @@ setInterval(function () {
         changes = headY*-1;
         fractionMaxSpeed = Math.abs(headY);
 
-        motion.changeAngles(names, changes, fractionMaxSpeed/5);
+        motion.changeAngles(names, changes, 0.2);
         joyLeftZero = false;
     }
     if(headX + headY === 0) {

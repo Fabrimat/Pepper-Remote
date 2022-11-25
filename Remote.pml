@@ -12,11 +12,13 @@
         <File name="modules" src=".idea/modules.xml" />
         <File name="workspace" src=".idea/workspace.xml" />
         <File name="style" src="html/assets/css/style.css" />
-        <File name="joy.min" src="html/assets/js/joy.min.js" />
         <File name="script" src="html/assets/js/script.js" />
         <File name="index" src="html/index.html" />
         <File name="nipplejs" src="html/assets/js/nipplejs.js" />
-        <File name="nipplejs.min" src="html/assets/js/nipplejs.min.js" />
+        <File name="" src=".gitignore" />
+        <File name="vcs" src=".idea/vcs.xml" />
+        <File name="LICENSE" src="LICENSE" />
+        <File name="README" src="README.md" />
     </Resources>
     <Topics />
     <IgnoredPaths />

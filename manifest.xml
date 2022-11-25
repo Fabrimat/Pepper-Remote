@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.1" uuid="remote-ceee3f">
+<package version="0.0.1" uuid="PepperRemote">
  <names>
-  <name lang="en_US">Untitled</name>
-  <name lang="it_IT">Remote</name>
+  <name lang="en_US">Pepper Remote</name>
+  <name lang="it_IT">Pepper Remote</name>
  </names>
  <supportedLanguages>
   <language>it_IT</language>

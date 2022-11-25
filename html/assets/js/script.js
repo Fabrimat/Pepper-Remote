@@ -10,7 +10,7 @@ const sId = function(sel) {
 const joysticks = {
     left: {
         zone: sId('joy-left'),
-        color: 'blue',
+        color: '#424242',
         dynamicPage: true
     },
     center: {
@@ -26,7 +26,7 @@ const joysticks = {
     },
     right: {
         zone: sId('joy-right'),
-        color: 'blue',
+        color: '#424242',
         dynamicPage: true
     }
 };

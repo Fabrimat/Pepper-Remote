@@ -4,6 +4,9 @@ let tablet;
 let pose;
 let alive;
 let audio;
+let battery;
+let tts;
+
 
 try {
     QiSession( function (session) {
@@ -32,6 +35,17 @@ try {
                 audio = ALAudioDevice ;
                 console.log("volume reday");
             });
+
+            session .service("ALBattery").then(function (ALBattery ) {
+                battery = ALBattery ;
+                console.log("battery reday");
+            })
+
+            session .service("ALTextToSpeech").then(function (ALTextToSpeech ) {
+                tts = ALTextToSpeech ;
+                console.log("tts reday");
+            })
+
             console.log("raised controlReady");
         });
     });

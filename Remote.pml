@@ -19,6 +19,13 @@
         <File name="vcs" src=".idea/vcs.xml" />
         <File name="LICENSE" src="LICENSE" />
         <File name="README" src="README.md" />
+        <File name="jsLibraryMappings" src=".idea/jsLibraryMappings.xml" />
+        <File name="boostrap" src="html/assets/css/boostrap.css" />
+        <File name="bootstrap.min" src="html/assets/css/bootstrap.min.css" />
+        <File name="naoqi" src="html/assets/js/naoqi.js" />
+        <File name="messages" src="html/messages.html" />
+        <File name="messages" src="html/assets/js/messages.js" />
+        <File name="vacuum1" src="behavior_1/vacuum1.ogg" />
     </Resources>
     <Topics />
     <IgnoredPaths />

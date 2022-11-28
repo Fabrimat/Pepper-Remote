@@ -7,8 +7,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <title>Messages</title>
 
+    <script src="/libs/qimessaging/2/qimessaging.js"></script>
+    <title>Messages</title>
 
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
@@ -31,75 +32,36 @@
 
 </head>
 <body>
-<h2 class="text-center mt-2">Messaggio</h2>
 
-<input type="text" class="form-control mt-2 mb-2" id="floatingInput" style="margin: 500px;" placeholder="Messaggio">
-<h3 class="text-center mt-2">Presets</h3>
+<input id="input-message" type="text" class="form-control mt-2 mb-2 centered" placeholder="Type a message">
 
 <div class="container">
     <div class="row">
         <div class="col">
             <div class="list-group">
-                <li class="list-group-item active" aria-current="true">Presentazione</li>
+                <li class="list-group-item active" aria-current="true">Presets</li>
 
-                <button type="button" class="list-group-item list-group-item-action">Ciao, sono Pepper</button>
+                <div class="input-group">
+                    <button type="button" class="form-control list-group-item list-group-item-action rounded-0">Ciao, sono Pepper</button>
 
-                <button type="button" class="list-group-item list-group-item-action">Piacere di conoscerti!</button>
-                <button type="button" class="list-group-item list-group-item-action">Non appartengo a nessuna classe,
-                    non sono uno studente!
-                </button>
-                <button type="button" class="list-group-item list-group-item-action">Io vivo qui, vivo con la Preside!
-                </button>
-
-                <button type="button" class="list-group-item list-group-item-action">Devo ancora imparare</button>
-
-            </div>
-        </div>
-        <div class="col">
-            <div class="list-group">
-                <li class="list-group-item active" aria-current="true">domanda-personali-2</li>
-
-                <button type="button" class="list-group-item list-group-item-action">come stai</button>
-
-                <button type="button" class="list-group-item list-group-item-action">quanti anni hai?</button>
-                <button type="button" class="list-group-item list-group-item-action">oh.., interessante!</button>
-                <button type="button" class="list-group-item list-group-item-action">parlami di te!</button>
-
-                <button type="button" class="list-group-item list-group-item-action">quali sono i yopuii interessi?
-                </button>
-
-            </div>
-        </div>
-        <div class="col">
-            <div class="list-group">
-                <li class="list-group-item active" aria-current="true">inspiratioanl quetes-3</li>
-
-                <button type="button" class="list-group-item list-group-item-action">baka</button>
-
-                <button type="button" class="list-group-item list-group-item-action">abbi fiducia in te stesso</button>
-                <button type="button" class="list-group-item list-group-item-action">non puoi sprecare tempo bei conpiti
-                    d'inglese se li fai appena li die -gabriele
-                </button>
-                <button type="button" class="list-group-item list-group-item-action">undefined</button>
-
-                <button type="button" class="list-group-item list-group-item-action">undefined</button>
+                    <div class="input-group-prepend">
+                        <button type="button" class="input-group list-group-item rounded-0 message-button">-</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control list-group-item list-group-item-action" placeholder="Write something..." aria-label="Username" aria-describedby="basic-addon1">
+                    <div class="input-group-prepend">
+                        <button type="button" class="input-group list-group-item message-button">+</button>
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
 </div>
 
-
-<div class="list-group centered">
-
-    <li class="list-group-item active" aria-current="true">Custom Set</li>
-    <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-
-    <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-    <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-    <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
-
-</div>
+<script src="assets/js/naoqi.js"></script>
+<script src="assets/js/messages.js"></script>
 
 </body>
 </html>

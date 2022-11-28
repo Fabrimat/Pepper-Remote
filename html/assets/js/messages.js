@@ -3,16 +3,18 @@ const volumeLabel = document.getElementById("volume-label");
 
 const volumeRange = document.getElementById("volume-range");
 
+const stopSpeech = document.getElementById("stop-speech");
+
 const subVolume = document.getElementById("sub-volume");
 
 const addVolume = document.getElementById("add-volume");
-let volume = 0;
+let volume = -1;
 
 function setVolume(value){
     value = Math.max(0, value);
     value = Math.min(value, 100);
     volumeLabel.innerHTML = "Volume: " + value + "%";
-
+    volumeLabel.value = value;
     changeVolume(value);
 
     volume = value;
@@ -37,6 +39,9 @@ volumeRange.addEventListener("input", function(event) {
 
 
 
+stopSpeech.onclick = async function(event){
+    tts.stopAll();
+};
 
 subVolume.onclick = async function(event) {
     setVolume(await audio.getOutputVolume() - 5)

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="PepperRemote" version="0.0.1">
+<package version="0.0.1" uuid="PepperRemote">
  <names>
   <name lang="en_US">Pepper Remote</name>
   <name lang="it_IT">Pepper Remote</name>

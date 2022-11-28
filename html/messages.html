@@ -31,9 +31,26 @@
 
 
 </head>
+
 <body>
 
+
+<label id="volume-label" class=" centered ">Volume: 60%</label>
+
 <input id="input-message" type="text" class="form-control mt-2 mb-2 centered" placeholder="Type a message">
+
+<div class="d-flex flex-row bd-highlight centered">
+
+    <button type="button" id="sub-volume" class="btn btn-secondary" style="width: 50px;">-</button>
+    <input type="range" class="form-range" min="0" max="100"  style="width: 200px;" id="volume-range">
+    <button type="button" id="add-volume" class="btn btn-secondary "style="width: 50px;">+</button>
+
+  </div>
+
+
+
+
+
 
 <div class="container">
     <div class="row">

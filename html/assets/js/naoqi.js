@@ -3,6 +3,7 @@ let motion;
 let tablet;
 let pose;
 let alive;
+let audio;
 
 try {
     QiSession( function (session) {
@@ -27,6 +28,10 @@ try {
                 alive = ALAutonomousLife ;
                 console.log("alive ready");
             });
+            session.service("ALAudioDevice").then(function (ALAudioDevice ) {
+                audio = ALAudioDevice ;
+                console.log("volume reday");
+            });
             console.log("raised controlReady");
         });
     });
@@ -41,6 +46,10 @@ function goToPose(poseName) {
 function raiseEvent(event, data) {
     memory.raiseEvent(event, data);
 }
+function changeVolume(volume){
+    audio.setOutputVolume(volume);
+}
+
 function setWebView(state) {
     if (state) {
         tablet.hideWebView();

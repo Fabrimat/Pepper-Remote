@@ -6,16 +6,17 @@ const volumeRange = document.getElementById("volume-range");
 const subVolume = document.getElementById("sub-volume");
 
 const addVolume = document.getElementById("add-volume");
+let volume = 0;
 
+function setVolume(value){
+    value = Math.max(0, value);
+    value = Math.min(value, 100);
+    volumeLabel.innerHTML = "Volume: " + value + "%";
 
-function setVolume(volume){
-    volume = Math.max(0, volume);
-    volume = Math.min(volume, 100);
-    volumeLabel.innerHTML = "Volume: " + volume + "%";
+    changeVolume(value);
 
-    changeVolume(volume);
-
-    return volume;
+    volume = value;
+    return value;
 }
 
 
@@ -38,19 +39,16 @@ volumeRange.addEventListener("input", function(event) {
 
 
 subVolume.onclick = async function(event) {
-
-
-    console.log(setVolume(await audio.getOutputVolume() - 5));
-
-
+    setVolume(await audio.getOutputVolume() - 5)
 };
 
 addVolume.onclick = async function(event) {
-
-
-
-    console.log(
-        );
-
-        setVolume(await audio.getOutputVolume() + 5)
+    setVolume(await audio.getOutputVolume() + 5)
 };
+
+setInterval(async function () {
+    const tempVolume = await audio.getOutputVolume();
+    if (volume !== tempVolume) {
+        setVolume(tempVolume);
+    }
+}, 500);

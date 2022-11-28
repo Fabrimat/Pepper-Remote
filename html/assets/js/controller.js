@@ -110,7 +110,7 @@ setInterval(function () {
         changes = headX*-1;
         fractionMaxSpeed = Math.abs(headX);
 
-        motion.changeAngles(names, changes, 0.2);
+        motion.changeAngles(names, changes, fractionMaxSpeed/150);
         joyLeftZero = false;
     }
     if (headY !== 0 || !joyLeftZero) {
@@ -118,7 +118,7 @@ setInterval(function () {
         changes = headY*-1;
         fractionMaxSpeed = Math.abs(headY);
 
-        motion.changeAngles(names, changes, 0.2);
+        motion.changeAngles(names, changes, fractionMaxSpeed/150);
         joyLeftZero = false;
     }
     if(headX + headY === 0) {

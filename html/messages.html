@@ -35,22 +35,47 @@
 <body>
 
 
-<label id="volume-label" class=" centered ">Volume: 60%</label>
 
-<input id="input-message" type="text" class="form-control mt-2 mb-2 centered" placeholder="Type a message">
+<div class="container centered">
 
-<button type="button" id="stop-speech" class="btn btn-secondary" >Stop Speech</button>
+    <div class="row">
+      <div class="col">
+        <label id="volume-label" class=" centered ">Volume: 60%</label>
 
-<div class="d-flex flex-row bd-highlight centered">
+      </div>
+      <div class="col">
+        <input id="input-message" type="text" class="form-control mt-2 mb-2 centered" style="width: 60vh;" placeholder="Type a message">
 
-    <button type="button" id="sub-volume" class="btn btn-secondary" style="width: 50px;">-</button>
-    <input type="range" class="form-range" min="0" max="100"  style="width: 200px;" id="volume-range">
-    <button type="button" id="add-volume" class="btn btn-secondary "style="width: 50px;">+</button>
+      </div>
+      <div class="col">
+        <button type="button" id="stop-speech" class="btn btn-warning my-2" >Stop Speech</button>
 
+      </div>
+
+
+    </div>
   </div>
 
 
+<div class="container centered">
 
+    <div class="row">
+      <div class="col">
+        <button type="button" id="sub-volume" class="btn btn-secondary" style="width: 50px;">-</button>
+
+      </div>
+      <div class="col">
+        <input type="range" class="form-range" min="0" max="100"  id="volume-range">
+
+      </div>
+      <div class="col">
+        <button type="button" id="add-volume" class="btn btn-secondary "style="width: 50px;">+</button>
+
+      </div>
+
+
+    </div>
+  </div>
 
 
 

@@ -14,11 +14,12 @@ function setVolume(value){
     value = Math.max(0, value);
     value = Math.min(value, 100);
     volumeLabel.innerHTML = "Volume: " + value + "%";
-    volumeLabel.value = value;
     changeVolume(value);
 
     volume = value;
-    return value;
+    volumeRange.value = volume; 
+
+    return volume;
 }
 
 

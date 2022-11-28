@@ -1,4 +1,5 @@
-body { min-height: 100vh; }
+body { min-height: 100vh;   touch-action: manipulation;
+}
 
 .no-select, body {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -19,7 +20,7 @@ body { min-height: 100vh; }
 }
 #joy-left {
     position: absolute;
-    width: 200px;
+    width: 250px;
     margin-left: 20px;
     height: 200px;
     background-color: gray;
@@ -33,7 +34,7 @@ body { min-height: 100vh; }
 }
 #joy-right {
     position: absolute;
-    width: 200px;
+    width: 250px;
     margin-right: 20px;
 
     height: 200px;
@@ -67,6 +68,15 @@ footer {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+.footeriero {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 95%;
+    height: 40vh;
+    text-align: center;
 }
 
 #input-message {

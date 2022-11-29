@@ -30,45 +30,12 @@
 <body>
 
 <h1 class="text-center mt-2">Remote - Controller</h1>
-
-<table id="tools" class="centered">
-    <tbody>
-    <tr>
-        <td>
-            <button class="btn btn-success m-1" type="button" onclick="raiseEvent('PepperRemote/LeftHand', 'LeftHand')">
-                Give left hand
-            </button>
-            <button class="btn btn-warning m-1" type="button"
-                    onclick="raiseEvent('PepperRemote/ShowTablet', 'ShowTablet')">Show Tablet
-            </button>
-            <button class="btn btn-warning m-1" type="button" onclick="setAlive(true)">Start Autonomous</button>
-        </td>
-        <td>
-        </td>
-        <td>
-            <button class="btn btn-success m-1" type="button"
-                    onclick="raiseEvent('PepperRemote/RightHand', 'RightHand')">Give right hand
-            </button>
-            <button class="btn btn-secondary m-1" type="button"
-                    onclick="raiseEvent('PepperRemote/HideTablet', 'HideTablet')">Hide Tablet
-            </button>
-            <button class="btn btn-secondary m-1" type="button" onclick="setAlive(false)">Stop Autonomous</button>
-        </td>
-    </tr>
-    <tr>
-        <td>
-        </td>
-        <td>
-            <button class="btn btn-danger" type="button" onclick="raiseEvent('PepperRemote/Stand', 'Stand')">Stand
-            </button>
-        </td>
-        <td>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
 <h6 class="centered">© Copyright Fabrizio La Rosa, Maurizio Palano - 2022</h6>
+
+<div class="centered">
+    <button class="btn btn-danger" type="button" onclick="raiseEvent('PepperRemote/Stand', 'Stand')">Stand
+    </button>
+</div>
 
 
 <div class="footeriero">
@@ -78,22 +45,20 @@
             <h3 class="text-center">Head movement</h3>
             <div id="joy-left" class="joystick main-joystick"></div>
         </div>
-    
+
         <div class="position-absolute top-0 start-50 translate-middle-x m-3 ">
             <h3 class="text-center">In-Place Rotation</h3>
             <div id="joy-center" class="joystick"></div>
         </div>
-    
+
         <div class="position-absolute top-0 end-0 m-3">
             <h3 class="text-center">Body movement</h3>
-            <div id="joy-right" class="joystick main-joystick" ></div>
+            <div id="joy-right" class="joystick main-joystick"></div>
         </div>
-    
+
     </div>
-    
-  </div>
 
-
+</div>
 
 
 <script type="text/javascript" src="assets/js/nipplejs.js"></script>

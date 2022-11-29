@@ -34,49 +34,51 @@
 
 <body>
 
+<h1 class="text-center mt-2">Remote - Messages</h1>
+<h6 class="centered">© Copyright Fabrizio La Rosa, Maurizio Palano - 2022</h6>
 
 
 <div class="container centered">
 
     <div class="row">
-      <div class="col">
-        <label id="volume-label" class=" centered ">Volume: 60%</label>
+        <div class="col">
+            <label id="volume-label" class=" centered ">Volume: 60%</label>
 
-      </div>
-      <div class="col">
-        <input id="input-message" type="text" class="form-control mt-2 mb-2 centered" style="width: 60vh;" placeholder="Type a message">
+        </div>
+        <div class="col">
+            <input id="input-message" type="text" class="form-control mt-2 mb-2 centered" style="width: 60vh;"
+                   placeholder="Type a message">
 
-      </div>
-      <div class="col">
-        <button type="button" id="stop-speech" class="btn btn-warning my-2" >Stop Speech</button>
+        </div>
+        <div class="col">
+            <button type="button" id="stop-speech" class="btn btn-warning my-2">Stop Speech</button>
 
-      </div>
+        </div>
 
 
     </div>
-  </div>
+</div>
 
 
 <div class="container centered">
 
     <div class="row">
-      <div class="col">
-        <button type="button" id="sub-volume" class="btn btn-secondary" style="width: 50px;">-</button>
+        <div class="col">
+            <button type="button" id="sub-volume" class="btn btn-secondary" style="width: 50px;">-</button>
 
-      </div>
-      <div class="col">
-        <input type="range" class="form-range" min="0" max="100"  id="volume-range">
+        </div>
+        <div class="col">
+            <input type="range" class="form-range" min="0" max="100" id="volume-range">
 
-      </div>
-      <div class="col">
-        <button type="button" id="add-volume" class="btn btn-secondary "style="width: 50px;">+</button>
+        </div>
+        <div class="col">
+            <button type="button" id="add-volume" class="btn btn-secondary " style="width: 50px;">+</button>
 
-      </div>
+        </div>
 
 
     </div>
-  </div>
-
+</div>
 
 
 <div class="container">
@@ -86,14 +88,17 @@
                 <li class="list-group-item active" aria-current="true">Presets</li>
 
                 <div class="input-group">
-                    <button type="button" class="form-control list-group-item list-group-item-action rounded-0">Ciao, sono Pepper</button>
+                    <button type="button" class="form-control list-group-item list-group-item-action rounded-0">Ciao,
+                        sono Pepper
+                    </button>
 
                     <div class="input-group-prepend">
                         <button type="button" class="input-group list-group-item rounded-0 message-button">-</button>
                     </div>
                 </div>
                 <div class="input-group">
-                    <input type="text" class="form-control list-group-item list-group-item-action" placeholder="Write something..." aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control list-group-item list-group-item-action"
+                           placeholder="Write something..." aria-label="Username" aria-describedby="basic-addon1">
                     <div class="input-group-prepend">
                         <button type="button" class="input-group list-group-item message-button">+</button>
                     </div>

@@ -156,3 +156,11 @@ setInterval(function () {
 
 }, 250);
 
+function openHands() {
+    motion.openHand("LHand");
+    motion.openHand("RHand");
+}
+function closeHands() {
+    motion.closeHand("LHand");
+    motion.closeHand("RHand");
+}

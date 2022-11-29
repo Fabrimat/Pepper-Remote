@@ -9,13 +9,13 @@ let tts;
 
 
 try {
-    QiSession( function (session) {
+    QiSession(function (session) {
         console.log('connected!');
 
         session.service("ALMemory").then(function (ALMemory) {
             memory = ALMemory;
             console.log(memory);
-            session.service("ALMotion").then(function (ALMotion){
+            session.service("ALMotion").then(function (ALMotion) {
                 motion = ALMotion;
                 console.log("movement ready");
             });
@@ -27,22 +27,22 @@ try {
                 pose = ALRobotPosture;
                 console.log("pose ready");
             });
-            session.service("ALAutonomousLife").then(function (ALAutonomousLife ) {
-                alive = ALAutonomousLife ;
+            session.service("ALAutonomousLife").then(function (ALAutonomousLife) {
+                alive = ALAutonomousLife;
                 console.log("alive ready");
             });
-            session.service("ALAudioDevice").then(function (ALAudioDevice ) {
-                audio = ALAudioDevice ;
+            session.service("ALAudioDevice").then(function (ALAudioDevice) {
+                audio = ALAudioDevice;
                 console.log("volume reday");
             });
 
-            session .service("ALBattery").then(function (ALBattery ) {
-                battery = ALBattery ;
+            session.service("ALBattery").then(function (ALBattery) {
+                battery = ALBattery;
                 console.log("battery reday");
             })
 
-            session .service("ALTextToSpeech").then(function (ALTextToSpeech ) {
-                tts = ALTextToSpeech ;
+            session.service("ALTextToSpeech").then(function (ALTextToSpeech) {
+                tts = ALTextToSpeech;
                 console.log("tts reday");
             })
 
@@ -57,10 +57,12 @@ try {
 function goToPose(poseName) {
     pose.goToPosture(poseName, 0.8)
 }
+
 function raiseEvent(event, data) {
     memory.raiseEvent(event, data);
 }
-function changeVolume(volume){
+
+function changeVolume(volume) {
     audio.setOutputVolume(volume);
 }
 
@@ -71,6 +73,7 @@ function setWebView(state) {
         tablet.showWebView();
     }
 }
+
 function setAlive(state) {
     if (state) {
         alive.setState('solitary')

@@ -1,4 +1,23 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.nipplejs = f()}})(function(){var define,module,exports;
+(function (f) {
+    if (typeof exports === "object" && typeof module !== "undefined") {
+        module.exports = f()
+    } else if (typeof define === "function" && define.amd) {
+        define([], f)
+    } else {
+        var g;
+        if (typeof window !== "undefined") {
+            g = window
+        } else if (typeof global !== "undefined") {
+            g = global
+        } else if (typeof self !== "undefined") {
+            g = self
+        } else {
+            g = this
+        }
+        g.nipplejs = f()
+    }
+})(function () {
+    var define, module, exports;
     'use strict';
 
 // Constants
@@ -52,14 +71,14 @@
         return Math.sqrt((dx * dx) + (dy * dy));
     };
 
-    u.angle = function(p1, p2) {
+    u.angle = function (p1, p2) {
         var dx = p2.x - p1.x;
         var dy = p2.y - p1.y;
 
         return u.degrees(Math.atan2(dy, dx));
     };
 
-    u.findCoord = function(p, d, a) {
+    u.findCoord = function (p, d, a) {
         var b = {x: 0, y: 0};
         a = u.radians(a);
         b.x = p.x - d * Math.cos(a);
@@ -67,11 +86,11 @@
         return b;
     };
 
-    u.radians = function(a) {
+    u.radians = function (a) {
         return a * (Math.PI / 180);
     };
 
-    u.degrees = function(a) {
+    u.degrees = function (a) {
         return a * (180 / Math.PI);
     };
 
@@ -214,7 +233,8 @@
 ///   SUPER CLASS   ///
 ///////////////////////
 
-    function Super () {};
+    function Super() {
+    };
 
 // Basic event system.
     Super.prototype.on = function (arg, cb) {
@@ -319,7 +339,7 @@
 ///   THE NIPPLE    ///
 ///////////////////////
 
-    function Nipple (collection, options) {
+    function Nipple(collection, options) {
         this.identifier = options.identifier;
         this.position = options.position;
         this.frontPosition = options.frontPosition;
@@ -716,7 +736,7 @@
 ///   THE COLLECTION    ///
 ///////////////////////////
 
-    function Collection (manager, options) {
+    function Collection(manager, options) {
         var self = this;
         self.nipples = [];
         self.idles = [];
@@ -1084,7 +1104,7 @@
         var xPosition = pos.x - nipple.position.x
         var yPosition = pos.y - nipple.position.y
 
-        if (opts.lockX){
+        if (opts.lockX) {
             yPosition = 0
         }
         if (opts.lockY) {
@@ -1193,7 +1213,7 @@
     };
 
 // Remove destroyed nipple from the lists
-    Collection.prototype.onDestroyed = function(evt, nipple) {
+    Collection.prototype.onDestroyed = function (evt, nipple) {
         var self = this;
         if (self.nipples.indexOf(nipple) >= 0) {
             self.nipples.splice(self.nipples.indexOf(nipple), 1);
@@ -1221,7 +1241,7 @@
         self.unbindEvt(self.options.zone, 'start');
 
         // Destroy nipples.
-        self.nipples.forEach(function(nipple) {
+        self.nipples.forEach(function (nipple) {
             nipple.destroy();
         });
 
@@ -1246,7 +1266,7 @@
 ///     MANAGER     ///
 ///////////////////////
 
-    function Manager (options) {
+    function Manager(options) {
         var self = this;
         self.ids = {};
         self.index = 0;
@@ -1447,7 +1467,7 @@
         self.unbindDocument(true);
         self.ids = {};
         self.index = 0;
-        self.collections.forEach(function(collection) {
+        self.collections.forEach(function (collection) {
             collection.destroy();
         });
         self.off();

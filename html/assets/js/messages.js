@@ -10,20 +10,20 @@ const subVolume = document.getElementById("sub-volume");
 const addVolume = document.getElementById("add-volume");
 let volume = -1;
 
-function setVolume(value){
+function setVolume(value) {
     value = Math.max(0, value);
     value = Math.min(value, 100);
     volumeLabel.innerHTML = "Volume: " + value + "%";
     changeVolume(value);
 
     volume = value;
-    volumeRange.value = volume; 
+    volumeRange.value = volume;
 
     return volume;
 }
 
 
-inputMessage.addEventListener("keypress", function(event) {
+inputMessage.addEventListener("keypress", function (event) {
     // If the user presses the "Enter" key on the keyboard
     if (event.key === "Enter") {
         raiseEvent("PepperRemote/MessageInput", event.target.value);
@@ -31,7 +31,7 @@ inputMessage.addEventListener("keypress", function(event) {
 });
 
 
-volumeRange.addEventListener("input", function(event) {
+volumeRange.addEventListener("input", function (event) {
 
 
     setVolume(parseInt(event.target.value));
@@ -39,16 +39,15 @@ volumeRange.addEventListener("input", function(event) {
 });
 
 
-
-stopSpeech.onclick = async function(event){
+stopSpeech.onclick = async function (event) {
     tts.stopAll();
 };
 
-subVolume.onclick = async function(event) {
+subVolume.onclick = async function (event) {
     setVolume(await audio.getOutputVolume() - 5)
 };
 
-addVolume.onclick = async function(event) {
+addVolume.onclick = async function (event) {
     setVolume(await audio.getOutputVolume() + 5)
 };
 

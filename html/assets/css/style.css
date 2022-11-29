@@ -1,4 +1,6 @@
-body { min-height: 100vh;   touch-action: manipulation;
+body {
+    min-height: 100vh;
+    touch-action: manipulation;
 }
 
 .no-select, body {
@@ -15,9 +17,10 @@ body { min-height: 100vh;   touch-action: manipulation;
 }
 
 .joystick {
-    width:200px;
-    height:200px;
+    width: 200px;
+    height: 200px;
 }
+
 #joy-left {
     position: absolute;
     width: 250px;
@@ -25,6 +28,7 @@ body { min-height: 100vh;   touch-action: manipulation;
     height: 200px;
     background-color: gray;
 }
+
 #joy-center {
     position: relative;
     text-align: center;
@@ -32,6 +36,7 @@ body { min-height: 100vh;   touch-action: manipulation;
     margin: auto;
     width: 50%;
 }
+
 #joy-right {
     position: absolute;
     width: 250px;
@@ -40,11 +45,13 @@ body { min-height: 100vh;   touch-action: manipulation;
     height: 200px;
     background-color: gray;
 }
+
 .main-joystick {
     border-radius: 10%;
     width: 30%;
     height: 40%;
 }
+
 .centered {
     text-align: center;
     align-content: center;
@@ -52,6 +59,7 @@ body { min-height: 100vh;   touch-action: manipulation;
     width: 50%;
     padding: 10px;
 }
+
 .pose-button {
     background-color: #4CAF50;
     border: none;
@@ -63,6 +71,7 @@ body { min-height: 100vh;   touch-action: manipulation;
     font-size: 16px;
     margin: 4px 2px;
 }
+
 footer {
     display: table;
     text-align: center;

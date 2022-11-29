@@ -1,9 +1,7 @@
-
-
-const s = function(sel) {
+const s = function (sel) {
     return document.querySelector(sel);
 };
-const sId = function(sel) {
+const sId = function (sel) {
     return document.getElementById(sel);
 };
 
@@ -42,19 +40,19 @@ let rightData = {};
 registerEvents();
 
 function registerEvents() {
-    joyLeft.on('move', function(evt, data) {
+    joyLeft.on('move', function (evt, data) {
         updateLeftData(data)
-    }).on('end', function(evt, data) {
+    }).on('end', function (evt, data) {
         resetLeftData();
     })
-    joyCenter.on('move', function(evt, data) {
+    joyCenter.on('move', function (evt, data) {
         updateCenterData(data)
-    }).on('end', function(evt, data) {
+    }).on('end', function (evt, data) {
         resetCenterData();
     })
-    joyRight.on('move', function(evt, data) {
+    joyRight.on('move', function (evt, data) {
         updateRightData(data)
-    }).on('end', function(evt, data) {
+    }).on('end', function (evt, data) {
         resetRightData();
     })
 }
@@ -69,17 +67,21 @@ function updateLeftData(data) {
     leftData.x = Math.cos(data.angle.radian) * data.distance * rightData.force / 150;
     leftData.y = Math.sin(data.angle.radian) * data.distance * rightData.force / 150;
 }
+
 function resetLeftData() {
     leftData.force = 0;
     leftData.x = 0;
     leftData.y = 0;
 }
+
 function updateCenterData(data) {
     centerData.x = Math.cos(data.angle.radian) * data.distance / 50;
 }
+
 function resetCenterData() {
     centerData.x = 0;
 }
+
 function updateRightData(data) {
     rightData.force = Math.min(data.force, 3);
     rightData.distance = data.distance;
@@ -87,6 +89,7 @@ function updateRightData(data) {
     rightData.x = Math.cos(data.angle.radian) * data.distance * rightData.force / 150;
     rightData.y = Math.sin(data.angle.radian) * data.distance * rightData.force / 150;
 }
+
 function resetRightData() {
     rightData.force = 0;
     rightData.distance = 0;
@@ -107,21 +110,21 @@ setInterval(function () {
 
     if (headX !== 0 || !joyLeftZero) {
         names = "HeadYaw";
-        changes = headX*-1;
+        changes = headX * -1;
         fractionMaxSpeed = Math.abs(headX);
 
-        motion.changeAngles(names, changes, fractionMaxSpeed/5);
+        motion.changeAngles(names, changes, fractionMaxSpeed / 5);
         joyLeftZero = false;
     }
     if (headY !== 0 || !joyLeftZero) {
         names = "HeadPitch";
-        changes = headY*-1;
+        changes = headY * -1;
         fractionMaxSpeed = Math.abs(headY);
 
-        motion.changeAngles(names, changes, fractionMaxSpeed/5);
+        motion.changeAngles(names, changes, fractionMaxSpeed / 5);
         joyLeftZero = false;
     }
-    if(headX + headY === 0) {
+    if (headX + headY === 0) {
         joyLeftZero = true;
     }
 
@@ -130,8 +133,8 @@ setInterval(function () {
     let rotate = centerData.x;
     if (rotate !== 0 || !joyCenterZero) {
 
-        if(rotate !== 0) {
-            motion.move(0, 0, rotate*-1);
+        if (rotate !== 0) {
+            motion.move(0, 0, rotate * -1);
             joyCenterZero = false;
         } else {
             motion.stopMove();
@@ -139,7 +142,7 @@ setInterval(function () {
         }
     }
 
-    let moveX = rightData.x*-1;
+    let moveX = rightData.x * -1;
     let moveY = rightData.y;
     if (moveX !== 0 || moveY !== 0 || !joyRightZero) {
         if (moveX + moveY !== 0) {

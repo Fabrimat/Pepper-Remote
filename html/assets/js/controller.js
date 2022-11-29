@@ -6,13 +6,13 @@ const sId = function (sel) {
 };
 
 const joysticks = {
-    left: {
-        zone: sId('joy-left'),
+    head: {
+        zone: sId('joy-head'),
         color: '#424242',
         dynamicPage: true
     },
-    center: {
-        zone: sId('joy-center'),
+    rotation: {
+        zone: sId('joy-rotation'),
         mode: 'static',
         position: {
             left: '50%',
@@ -22,135 +22,135 @@ const joysticks = {
         lockX: true,
         dynamicPage: true
     },
-    right: {
-        zone: sId('joy-right'),
+    move: {
+        zone: sId('joy-move'),
         color: '#424242',
         dynamicPage: true
     }
 };
 
-const joyLeft = nipplejs.create(joysticks["left"]);
-const joyCenter = nipplejs.create(joysticks["center"]);
-const joyRight = nipplejs.create(joysticks["right"]);
+const joyHead = nipplejs.create(joysticks["head"]);
+const joyRotation = nipplejs.create(joysticks["rotation"]);
+const joyMove = nipplejs.create(joysticks["move"]);
 
-let leftData = {};
-let centerData = {};
-let rightData = {};
+let headData = {};
+let rotationData = {};
+let moveData = {};
 
 registerEvents();
 
 function registerEvents() {
-    joyLeft.on('move', function (evt, data) {
-        updateLeftData(data)
+    joyHead.on('move', function (evt, data) {
+        updateHeadData(data)
     }).on('end', function (evt, data) {
-        resetLeftData();
+        resetHeadData();
     })
-    joyCenter.on('move', function (evt, data) {
-        updateCenterData(data)
+    joyRotation.on('move', function (evt, data) {
+        updateRotationData(data)
     }).on('end', function (evt, data) {
-        resetCenterData();
+        resetRotationData();
     })
-    joyRight.on('move', function (evt, data) {
-        updateRightData(data)
+    joyMove.on('move', function (evt, data) {
+        updateMoveData(data)
     }).on('end', function (evt, data) {
-        resetRightData();
+        resetMoveData();
     })
 }
 
-resetLeftData();
-resetCenterData();
-resetRightData();
+resetHeadData();
+resetRotationData();
+resetMoveData();
 
-function updateLeftData(data) {
-    rightData.force = Math.min(data.force, 3);
+function updateHeadData(data) {
+    moveData.force = Math.min(data.force, 3);
 
-    leftData.x = Math.cos(data.angle.radian) * data.distance * rightData.force / 150;
-    leftData.y = Math.sin(data.angle.radian) * data.distance * rightData.force / 150;
+    headData.x = Math.cos(data.angle.radian) * data.distance * moveData.force / 150;
+    headData.y = Math.sin(data.angle.radian) * data.distance * moveData.force / 150;
 }
 
-function resetLeftData() {
-    leftData.force = 0;
-    leftData.x = 0;
-    leftData.y = 0;
+function resetHeadData() {
+    headData.force = 0;
+    headData.x = 0;
+    headData.y = 0;
 }
 
-function updateCenterData(data) {
-    centerData.x = Math.cos(data.angle.radian) * data.distance / 50;
+function updateRotationData(data) {
+    rotationData.x = Math.cos(data.angle.radian) * data.distance / 50;
 }
 
-function resetCenterData() {
-    centerData.x = 0;
+function resetRotationData() {
+    rotationData.x = 0;
 }
 
-function updateRightData(data) {
-    rightData.force = Math.min(data.force, 3);
-    rightData.distance = data.distance;
+function updateMoveData(data) {
+    moveData.force = Math.min(data.force, 3);
+    moveData.distance = data.distance;
 
-    rightData.x = Math.cos(data.angle.radian) * data.distance * rightData.force / 150;
-    rightData.y = Math.sin(data.angle.radian) * data.distance * rightData.force / 150;
+    moveData.x = Math.cos(data.angle.radian) * data.distance * moveData.force / 150;
+    moveData.y = Math.sin(data.angle.radian) * data.distance * moveData.force / 150;
 }
 
-function resetRightData() {
-    rightData.force = 0;
-    rightData.distance = 0;
-    rightData.x = 0;
-    rightData.y = 0;
+function resetMoveData() {
+    moveData.force = 0;
+    moveData.distance = 0;
+    moveData.x = 0;
+    moveData.y = 0;
 }
 
-let joyLeftZero = false;
-let joyCenterZero = false;
-let joyRightZero = false;
+let joyHeadZero = false;
+let joyRotationZero = false;
+let joyMoveZero = false;
 
 setInterval(function () {
     let names, changes, fractionMaxSpeed;
 
-    let headX = leftData.x;
-    let headY = leftData.y;
+    let headX = headData.x;
+    let headY = headData.y;
     //motion.setStiffnesses("Head", 1.0);
 
-    if (headX !== 0 || !joyLeftZero) {
+    if (headX !== 0 || !joyHeadZero) {
         names = "HeadYaw";
         changes = headX * -1;
         fractionMaxSpeed = Math.abs(headX);
 
         motion.changeAngles(names, changes, fractionMaxSpeed / 5);
-        joyLeftZero = false;
+        joyHeadZero = false;
     }
-    if (headY !== 0 || !joyLeftZero) {
+    if (headY !== 0 || !joyHeadZero) {
         names = "HeadPitch";
         changes = headY * -1;
         fractionMaxSpeed = Math.abs(headY);
 
         motion.changeAngles(names, changes, fractionMaxSpeed / 5);
-        joyLeftZero = false;
+        joyHeadZero = false;
     }
     if (headX + headY === 0) {
-        joyLeftZero = true;
+        joyHeadZero = true;
     }
 
     //motion.setStiffnesses("Head", 0.0);
 
-    let rotate = centerData.x;
-    if (rotate !== 0 || !joyCenterZero) {
+    let rotate = rotationData.x;
+    if (rotate !== 0 || !joyRotationZero) {
 
         if (rotate !== 0) {
             motion.move(0, 0, rotate * -1);
-            joyCenterZero = false;
+            joyRotationZero = false;
         } else {
             motion.stopMove();
-            joyCenterZero = false;
+            joyRotationZero = false;
         }
     }
 
-    let moveX = rightData.x * -1;
-    let moveY = rightData.y;
-    if (moveX !== 0 || moveY !== 0 || !joyRightZero) {
+    let moveX = moveData.x * -1;
+    let moveY = moveData.y;
+    if (moveX !== 0 || moveY !== 0 || !joyMoveZero) {
         if (moveX + moveY !== 0) {
             motion.move(moveY, moveX, 0);
-            joyRightZero = false;
+            joyMoveZero = false;
         } else {
             motion.stopMove();
-            joyRightZero = true;
+            joyMoveZero = true;
         }
     }
 

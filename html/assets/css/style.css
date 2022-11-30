@@ -12,7 +12,30 @@ body {
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
+#joy-head {
+    position: absolute;
+    width: 250px;
+    margin-left: 20px;
+    height: 200px;
+    background-color: gray;
+}
 
+#joy-rotation {
+    position: relative;
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    width: 50%;
+}
+
+#joy-move {
+    position: absolute;
+    width: 250px;
+    margin-right: 20px;
+
+    height: 200px;
+    background-color: gray;
+}
 
 .joystick {
     position: relative;

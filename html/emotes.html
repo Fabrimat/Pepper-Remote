@@ -9,12 +9,9 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-            crossorigin="anonymous"></script>
+    <script src="/assets/js/boostrap-js/boostrap.popper.js"></script>
+    <script src="/assets/js/boostrap-js/boostrap.js"></script>
+
 
     <script src="/libs/qimessaging/2/qimessaging.js"></script>
     <title>Messages</title>
@@ -24,16 +21,18 @@
             <svg class="bi me-2" width="40" height="32">
                 <use xlink:href="#bootstrap"></use>
             </svg>
-            <span class="fs-4">Pepper - Remote</span>
+            <span id="main-header-span" class="fs-4">Pepper - Remote</span>
         </a>
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">Controller</a></li>
             <li class="nav-item"><a href="messages.html" class="nav-link ">Messages</a></li>
-            <li class="nav-item"><a href="settings.html" class="nav-link ">Settings</a></li>
+            <li class="nav-item"><a href="tablet.html" class="nav-link">Tablet</a></li>
 
-            <li class="nav-item"><a href="#" class="nav-link active ">Emotes</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link active">Emotes</a></li>
+            <li class="nav-item"><a href="settings.html" class="nav-link">Settings</a></li>
+
+            <li class="nav-item"><a href="emotes.html" class="nav-link  ">About</a></li>
         </ul>
     </header>
 
@@ -46,38 +45,49 @@
 <h6 class="centered">© Copyright Fabrizio La Rosa, Maurizio Palano - 2022</h6>
 
 
-<ul class="list-group list-group-horizontal">
+<ul class="list-group list-group-horizontal justify-content-center">
     <li class="list-group-item">
         <div class="card" style="width: 18rem;">
-            <img src="assets/images/vacuum.jpg" style="height: 300px; " class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Aspirapolvere</h5>
-                <p class="card-text">Insomma, un robot, che fa il robot!.</p>
-                <a href="#" id="button-vacuum" class="btn btn-primary">Attiva</a>
+                <h5 class="card-title">Vacuum cleaner</h5>
+                <p class="card-text">A robot that acts like a robot!</p>
+                <a href="#" onclick="raiseEvent('PepperRemote/Emotes/Vacuum')" class="btn btn-primary">Attiva</a>
             </div>
         </div>
     </li>
     <li class="list-group-item">
         <div class="card" style="width: 18rem;">
-            <img src="assets/images/picture.jpg" style="height: 300px; " class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Scatta foto!!</h5>
-                <p class="card-text">Insomma, un robot, che scatta una foto!.</p>
-                <a href="#" id="button-picture" class="btn btn-primary">Attiva</a>
+                <h5 class="card-title">Take picture!</h5>
+                <p class="card-text">A robot that love to take pictures!</p>
+                <a href="#" onclick="raiseEvent('PepperRemote/Emotes/Picture')" class="btn btn-primary">Attiva</a>
             </div>
         </div>
     </li>
+    <li class="list-group-item">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Left hand!</h5>
+                <p class="card-text">A robot that gives you his left hand!</p>
+                <a href="#" onclick="raiseEvent('PepperRemote/LeftHand', 'LeftHand')" class="btn btn-primary">Attiva</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="list-group-item">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Right hand!</h5>
+                <p class="card-text">A robot that gives you his right hand!</p>
+                <a href="#" onclick="raiseEvent('PepperRemote/RightHand', 'RightHand')" class="btn btn-primary">Attiva</a>
+            </div>
+        </div>
+    </li>
+
 </ul>
 
-<button class="btn btn-success m-1" type="button" onclick="raiseEvent('PepperRemote/LeftHand', 'LeftHand')">
-    Give left hand
-</button>
-<button class="btn btn-success m-1" type="button"
-        onclick="raiseEvent('PepperRemote/RightHand', 'RightHand')">Give right hand
-</button>
 
 <script src="assets/js/naoqi.js"></script>
-<script src="assets/js/emotes.js"></script>
 
 </body>
 </html>

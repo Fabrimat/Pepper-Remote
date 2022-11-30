@@ -24,7 +24,6 @@ function setVolume(value) {
 
 
 inputMessage.addEventListener("keypress", function (event) {
-    // If the user presses the "Enter" key on the keyboard
     if (event.key === "Enter") {
         raiseEvent("PepperRemote/MessageInput", event.target.value);
     }
@@ -32,8 +31,6 @@ inputMessage.addEventListener("keypress", function (event) {
 
 
 volumeRange.addEventListener("input", function (event) {
-
-
     setVolume(parseInt(event.target.value));
 
 });

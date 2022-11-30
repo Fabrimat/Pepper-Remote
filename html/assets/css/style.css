@@ -12,45 +12,29 @@ body {
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
-#tools {
-    width: 100%;
-}
+
 
 .joystick {
-    width: 200px;
-    height: 200px;
-}
-
-#joy-left {
-    position: absolute;
-    width: 250px;
-    margin-left: 20px;
-    height: 200px;
-    background-color: gray;
-}
-
-#joy-center {
     position: relative;
     text-align: center;
     align-content: center;
     margin: auto;
-    width: 50%;
-}
-
-#joy-right {
-    position: absolute;
-    width: 250px;
-    margin-right: 20px;
-
+    width: 200px;
     height: 200px;
-    background-color: gray;
+
+
 }
 
 .main-joystick {
-    border-radius: 10%;
-    width: 30%;
-    height: 40%;
+    position: absolute;
+    border-radius: 5%;
+    width: 250px;
+    height: 200px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: gray;
 }
+
 
 .centered {
     text-align: center;
@@ -60,36 +44,11 @@ body {
     padding: 10px;
 }
 
-.pose-button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-}
-
-footer {
-    display: table;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.footeriero {
+.footer {
     position: fixed;
-    left: 0;
-    bottom: 0;
+    bottom: 300px;
+    left: 0px;
     width: 95%;
-    height: 40vh;
-    text-align: center;
-}
-
-#input-message {
-    width: 50%;
 }
 
 .message-button {

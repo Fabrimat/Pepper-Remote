@@ -52,6 +52,10 @@ try {
 } catch (err) {
     console.log("Error when initializing QiSession: " + err.message);
     console.log("Make sure you load this page from the robots server.")
+    if(err.message === "QiSession is not defined"){
+        document.getElementById("main-header-span").innerText ="Pepper - Remote (Err-QiSession)";
+        console.log("Probably not on a Pepper Robot")
+    }
 }
 
 function goToPose(poseName) {

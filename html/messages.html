@@ -16,42 +16,45 @@
             <svg class="bi me-2" width="40" height="32">
                 <use xlink:href="#bootstrap"></use>
             </svg>
-            <span class="fs-4">Pepper - Remote</span>
+            <span id="main-header-span" class="fs-4">Pepper - Remote</span>
         </a>
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">Controller</a></li>
-            <li class="nav-item"><a href="#" class="nav-link active">Messages</a></li>
-            <li class="nav-item"><a href="settings.html" class="nav-link">Settings</a></li>
+            <li class="nav-item"><a href="#" class="nav-link active ">Messages</a></li>
+            <li class="nav-item"><a href="tablet.html" class="nav-link">Tablet</a></li>
 
             <li class="nav-item"><a href="emotes.html" class="nav-link">Emotes</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="settings.html" class="nav-link">Settings</a></li>
+
+            <li class="nav-item"><a href="about.html" class="nav-link  ">About</a></li>
         </ul>
     </header>
-
 
 </head>
 
 <body>
 
 <h1 class="text-center mt-2">Remote - Messages</h1>
-<h6 class="centered">© Copyright Fabrizio La Rosa, Maurizio Palano - 2022</h6>
+<h6 class="d-flex justify-content-center my-3">© Copyright Fabrizio La Rosa, Maurizio Palano - 2022</h6>
 
 
-<div class="container centered">
+<div class="container d-flex justify-content-center  my-2">
 
     <div class="row">
         <div class="col">
-            <label id="volume-label" class=" centered ">Volume: loading...</label>
+            <label id="volume-label">Volume: loading...</label>
 
         </div>
         <div class="col">
-            <input id="input-message" type="text" class="form-control mt-2 mb-2 centered" style="width: 60vh;"
+            <input id="input-message" type="text" class="form-control mt-2 mb-2 text-center" style="width: 20vw;"
                    placeholder="Type a message">
 
         </div>
         <div class="col">
-            <button type="button" id="stop-speech" class="btn btn-warning my-2">Stop Speech</button>
+            <button type="button" id="stop-speech" class="btn btn-warning mt-2 " style="height: 39px; width: 115px">Stop
+                Speech
+            </button>
 
         </div>
 
@@ -60,7 +63,7 @@
 </div>
 
 
-<div class="container centered">
+<div class="container d-flex justify-content-center my-3">
 
     <div class="row">
         <div class="col">
@@ -68,7 +71,7 @@
 
         </div>
         <div class="col">
-            <input type="range" class="form-range" min="0" max="100" id="volume-range">
+            <input type="range" class="form-range" min="0" max="100" style="width: 35vw" id="volume-range">
 
         </div>
         <div class="col">

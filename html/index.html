@@ -10,54 +10,57 @@
     <script src="/libs/qimessaging/2/qimessaging.js"></script>
     <title>Pepper Remote</title>
 </head>
+
 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32">
             <use xlink:href="#bootstrap"></use>
         </svg>
-        <span class="fs-4">Pepper - Remote</span>
+        <span id="main-header-span" class="fs-4">Pepper - Remote</span>
     </a>
 
     <ul class="nav nav-pills">
         <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Controller</a></li>
-        <li class="nav-item"><a href="messages.html" class="nav-link">Messages</a></li>
-        <li class="nav-item"><a href="settings.html" class="nav-link">Settings</a></li>
+        <li class="nav-item"><a href="messages.html" class="nav-link ">Messages</a></li>
+        <li class="nav-item"><a href="tablet.html" class="nav-link">Tablet</a></li>
 
         <li class="nav-item"><a href="emotes.html" class="nav-link">Emotes</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="settings.html" class="nav-link">Settings</a></li>
+
+        <li class="nav-item"><a href="about.html" class="nav-link  ">About</a></li>
     </ul>
 </header>
 <body>
 
-<h1 class="text-center mt-2">Remote - Controller</h1>
-<h6 class="centered">© Copyright Fabrizio La Rosa, Maurizio Palano - 2022</h6>
+<h1 class="d-flex justify-content-center my-4">Remote - Controller</h1>
+<h6 class="d-flex justify-content-center mt-2">© Copyright Fabrizio La Rosa, Maurizio Palano - 2022</h6>
 
-<div class="centered">
-    <button class="btn btn-danger" type="button" onclick="raiseEvent('PepperRemote/Stand', 'Stand')">Stand
+<div class="d-flex justify-content-center ">
+    <button class="btn btn-danger m-2" type="button"  style="width: 114px" onclick="raiseEvent('PepperRemote/Stand', 'Stand')">Stand
     </button>
-    <button class="btn btn-danger" type="button" onclick="openHands()">Open Hands
+    <button class="btn btn-danger m-2" type="button" onclick="openHands()">Open Hands
     </button>
-    <button class="btn btn-danger" type="button" onclick="closeHands()">Close Hands
+    <button class="btn btn-danger m-2" type="button" onclick="closeHands()">Close Hands
     </button>
 </div>
 
 
-<div class="footeriero">
+<div class="footer">
 
     <div class="position-relative border-top">
-        <div class="position-absolute top-0 start-0 m-3">
-            <h3 class="text-center">Head movement</h3>
-            <div id="joy-head" class="joystick main-joystick"></div>
+        <div class="position-absolute  start-0 m-3">
+            <h3 style="margin-left: 35px">Head movement</h3>
+            <div id="joy-head" class="main-joystick"></div>
         </div>
 
-        <div class="position-absolute top-0 start-50 translate-middle-x m-3 ">
-            <h3 class="text-center">In-Place Rotation</h3>
+        <div class="position-absolute start-50 translate-middle-x m-3 ">
+            <h3>In-Place Rotation</h3>
             <div id="joy-rotation" class="joystick"></div>
         </div>
 
-        <div class="position-absolute top-0 end-0 m-3">
-            <h3 class="text-center">Body movement</h3>
-            <div id="joy-move" class="joystick main-joystick"></div>
+        <div class="position-absolute  end-0 m-3">
+            <h3 style="margin-left: 35px">Body movement</h3>
+            <div id="joy-move" class="main-joystick"></div>
         </div>
 
     </div>

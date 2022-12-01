@@ -6,7 +6,7 @@ let alive;
 let audio;
 let battery;
 let tts;
-
+let video;
 
 try {
     QiSession(function (session) {
@@ -33,14 +33,16 @@ try {
             });
             session.service("ALAudioDevice").then(function (ALAudioDevice) {
                 audio = ALAudioDevice;
-                console.log("volume reday");
+                console.log("audio ready");
             });
-
             session.service("ALBattery").then(function (ALBattery) {
                 battery = ALBattery;
-                console.log("battery reday");
-            })
-
+                console.log("battery ready");
+            });
+            session.service("ALVideoDevice").then(function (ALVideoDevice) {
+                video = ALVideoDevice;
+                console.log("video ready");
+            });
             session.service("ALTextToSpeech").then(function (ALTextToSpeech) {
                 tts = ALTextToSpeech;
                 console.log("tts reday");

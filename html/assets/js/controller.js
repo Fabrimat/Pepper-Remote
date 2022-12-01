@@ -97,9 +97,9 @@ function resetMoveData() {
     moveData.y = 0;
 }
 
-let joyHeadZero = false;
-let joyRotationZero = false;
-let joyMoveZero = false;
+let joyHeadZero = true;
+let joyRotationZero = true;
+let joyMoveZero = true;
 
 setInterval(function () {
     let names, changes, fractionMaxSpeed;

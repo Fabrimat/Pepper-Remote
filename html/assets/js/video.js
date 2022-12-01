@@ -1,23 +1,3 @@
-const videoButton = document.getElementById("video-button");
-const video0 = document.getElementById("video-div-0");
-const video1 = document.getElementById("video-div-1");
-const video2 = document.getElementById("video-div-2");
-
-function yuv2rgb(y,u,v){
-    y=parseInt(y);
-    u=parseInt(u);
-    v=parseInt(v);
-    r=clamp(Math.floor(y+1.4075*(v-128)),0,255);
-    g=clamp(Math.floor(y-0.3455*(u-128)-(0.7169*(v-128))),0,255);
-    b=clamp(Math.floor(y+1.7790*(u-128)),0,255);
-    return({r:r,g:g,b:b});
-}
-
-function clamp(n,low,high){
-    if(n<low){return(low);}
-    if(n>high){return(high);}
-}
-
 var jsnao = {
     error : function(data) { console.log(data) },
     display_video : async function() {
@@ -76,11 +56,9 @@ var jsnao = {
         var context = canvas.getContext('2d');
         var imageData = context.getImageData(0, 0, imgWidth, imgHeight);
         for (var p = 0; p < w; ) {
-            let rgb = yuv2rgb(jsnao.t[imgBin[x++]], jsnao.t[imgBin[x++]], jsnao.t[imgBin[x++]]);
-
-            imageData.data[p++] = rgb.r;
-            imageData.data[p++] = rgb.g;
-            imageData.data[p++] = rgb.b;
+            imageData.data[p++] = jsnao.t[imgBin[x++]];
+            imageData.data[p++] = jsnao.t[imgBin[x++]];
+            imageData.data[p++] = jsnao.t[imgBin[x++]];
             imageData.data[p++] = 255;
         }
 

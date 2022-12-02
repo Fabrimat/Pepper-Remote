@@ -2,55 +2,64 @@
 <html lang="it">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="/libs/qimessaging/2/qimessaging.js"></script>
     <title>Pepper Remote</title>
 </head>
 
 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32">
+    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" href="/">
+        <svg class="bi me-2" height="32" width="40">
             <use xlink:href="#bootstrap"></use>
         </svg>
-        <span id="main-header-span" class="fs-4">Pepper - Remote</span>
+        <span class="fs-4" id="main-header-span">Pepper - Remote</span>
     </a>
 
     <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Controller</a></li>
-        <li class="nav-item"><a href="messages.html" class="nav-link ">Messages</a></li>
-        <li class="nav-item"><a href="tablet.html" class="nav-link">Tablet</a></li>
+        <li class="nav-item"><a aria-current="page" class="nav-link active" href="#">Controller</a></li>
+        <li class="nav-item"><a class="nav-link " href="messages.html">Messages</a></li>
+        <li class="nav-item"><a class="nav-link" href="tablet.html">Tablet</a></li>
 
-        <li class="nav-item"><a href="emotes.html" class="nav-link">Emotes</a></li>
-        <li class="nav-item"><a href="settings.html" class="nav-link">Settings</a></li>
+        <li class="nav-item"><a class="nav-link" href="emotes.html">Emotes</a></li>
+        <li class="nav-item"><a class="nav-link" href="settings.html">Settings</a></li>
 
-        <li class="nav-item"><a href="about.html" class="nav-link  ">About</a></li>
+        <li class="nav-item"><a class="nav-link  " href="about.html">About</a></li>
     </ul>
 </header>
 <body>
 
-<h1 class="d-flex justify-content-center my-4">Remote - Controller</h1>
-<h6 class="d-flex justify-content-center mt-2">© Copyright Fabrizio La Rosa, Maurizio Palano - 2022</h6>
+<div id="main-labels">
+    <h1 class="d-flex justify-content-center my-4" id="page-title">Remote - Controller</h1>
+    <h6 class="d-flex justify-content-center mt-2" id="page-copyright">© Copyright Fabrizio La Rosa, Maurizio Palano -
+        2022</h6>
+
+
+</div>
+
+<div class="d-flex justify-content-center mt-2" style="display:inline-block ;vertical-align:top;">
+    <button id="video-button" onclick="jsnao.display_video();">Camera</button>
+    <div id="video-div-0" style="display:none;background-color:#999999; width: 549px; height: 299px">
+        <canvas height="120" id="video-canvas-0" style="width: 550px;height: 300px" width="160"></canvas>
+    </div>
+    <div id="video-div-1" style="display:none;background-color:#999999; width: 549px; height: 299px">
+        <canvas height="120" id="video-canvas-1" style="width: 550px;height: 300px" width="160"></canvas>
+    </div>
+</div>
+
 
 <div class="d-flex justify-content-center ">
-    <button class="btn btn-danger m-2" type="button"  style="width: 114px" onclick="raiseEvent('PepperRemote/Stand', 'Stand')">Stand
+    <button class="btn btn-danger m-2" id="stand" onclick="raiseEvent('PepperRemote/Stand', 'Stand')" style="width: 114px"
+            type="button">Stand
     </button>
-    <button class="btn btn-danger m-2" type="button" onclick="openHands()">Open Hands
+    <button class="btn btn-danger m-2" id="open-hands" onclick="openHands()" type="button">Open Hands
     </button>
-    <button class="btn btn-danger m-2" type="button" onclick="closeHands()">Close Hands
+    <button class="btn btn-danger m-2" id="close-hands" onclick="closeHands()" type="button">Close Hands
     </button>
 </div>
-
-<div style="display:inline-block;vertical-align:top;">
-    <button id="video-button" onclick="jsnao.display_video();">Camera</button>
-    <div id="video-div-0" style="display:none;background-color:#999999;"><canvas id="video-canvas-0" width="160" height="120"></canvas></div>
-    <div id="video-div-1" style="display:none;background-color:#999999;"><canvas id="video-canvas-1" width="160" height="120"></canvas></div>
-    <div id="video-div-2" style="display:none;background-color:#999999;"><canvas id="video-canvas-2" width="160" height="120"></canvas></div>
-</div>
-
 
 
 <div class="footer">
@@ -58,17 +67,17 @@
     <div class="position-relative border-top">
         <div class="position-absolute  start-0 m-3">
             <h3 style="margin-left: 35px">Head movement</h3>
-            <div id="joy-head" class="main-joystick"></div>
+            <div class="main-joystick" id="joy-head"></div>
         </div>
 
         <div class="position-absolute start-50 translate-middle-x m-3 ">
             <h3>In-Place Rotation</h3>
-            <div id="joy-rotation" class="joystick"></div>
+            <div class="joystick" id="joy-rotation"></div>
         </div>
 
         <div class="position-absolute  end-0 m-3">
             <h3 style="margin-left: 35px">Body movement</h3>
-            <div id="joy-move" class="main-joystick"></div>
+            <div class="main-joystick" id="joy-move"></div>
         </div>
 
     </div>
@@ -76,12 +85,12 @@
 </div>
 
 
-<script type="text/javascript" src="assets/js/jquery-3.6.1.min.js"></script>
-<script type="text/javascript" src="assets/js/nipplejs.js"></script>
-<script type="text/javascript" src="assets/js/naoqi.js"></script>
-<script type="text/javascript" src="assets/js/controller.js"></script>
-<script type="text/javascript" src="assets/js/colorconverte.js"></script>
-<script type="text/javascript" src="assets/js/video.js"></script>
+<script src="assets/js/jquery-3.6.1.min.js" type="text/javascript"></script>
+<script src="assets/js/nipplejs.js" type="text/javascript"></script>
+<script src="assets/js/naoqi.js" type="text/javascript"></script>
+<script src="assets/js/controller.js" type="text/javascript"></script>
+<script src="assets/js/colorconverter.js" type="text/javascript"></script>
+<script src="assets/js/video.js" type="text/javascript"></script>
 </body>
 
 </html>

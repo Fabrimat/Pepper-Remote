@@ -1,6 +1,6 @@
 const selectAutonomous = document.getElementById("select-autonomous");
 const batteryLabel = document.getElementById("battery-label");
-
+const blinkingButton = document.getElementById("blinking-button");
 
 selectAutonomous.onchange = function (event) {
     // If the user presses the "Enter" key on the keyboard
@@ -8,14 +8,28 @@ selectAutonomous.onchange = function (event) {
 };
 
 function setAutonomous(mode, applyOnRobot) {
-    console.log(mode)
     if (applyOnRobot) alive.setState(mode);
     selectAutonomous.value = mode;
 }
 
+async function toggleBlinking() {
+    const blink = await blinking.isEnabled();
+    await blinking.setEnabled(!await blink);
+    setBlinkingLabel(blink);
+}
+
+function setBlinkingLabel(value) {
+    if(value) {
+        blinkingButton.innerHTML = "Disable blinking";
+    } else {
+        blinkingButton.innerHTML = "Enable blinking";
+    }
+}
 
 setInterval(async function () {
     setAutonomous(await alive.getState(), false)
 
     batteryLabel.innerHTML = "Battery: " + await battery.getBatteryCharge() + " %";
+
+    setBlinkingLabel(await blinking.isEnabled());
 }, 500);

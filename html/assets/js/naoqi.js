@@ -7,6 +7,7 @@ let audio;
 let battery;
 let tts;
 let video;
+let blinking;
 
 try {
     QiSession(function (session) {
@@ -45,7 +46,11 @@ try {
             });
             session.service("ALTextToSpeech").then(function (ALTextToSpeech) {
                 tts = ALTextToSpeech;
-                console.log("tts reday");
+                console.log("tts ready");
+            })
+            session.service("ALAutonomousBlinking").then(function (ALAutonomousBlinking ) {
+                blinking = ALAutonomousBlinking ;
+                console.log("blinking ready");
             })
 
             console.log("raised controlReady");

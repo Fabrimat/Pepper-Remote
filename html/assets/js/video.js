@@ -56,9 +56,14 @@ var jsnao = {
         var context = canvas.getContext('2d');
         var imageData = context.getImageData(0, 0, imgWidth, imgHeight);
         for (var p = 0; p < w; ) {
-            imageData.data[p++] = jsnao.t[imgBin[x++]];
-            imageData.data[p++] = jsnao.t[imgBin[x++]];
-            imageData.data[p++] = jsnao.t[imgBin[x++]];
+            let y = imgBin[x++];
+            let u = imgBin[x++];
+            let v = imgBin[x++];
+            let rgb = colorconv.YUV2RGB([y, u, v])
+
+            imageData.data[p++] = rgb[0];
+            imageData.data[p++] = rgb[1];
+            imageData.data[p++] = rgb[2];
             imageData.data[p++] = 255;
         }
 

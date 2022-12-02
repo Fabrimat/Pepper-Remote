@@ -189,6 +189,14 @@ var colorconv = {
         r = Math.round(y + v / 0.877);
         g = Math.round(y - 0.39466 * u - 0.5806 * v);
         b = Math.round(y + u / 0.493);
+
+        if(r > 255) r = 255;
+        if(g > 255) g = 255;
+        if(b > 255) b = 255;
+        if(r < 0) r = 0;
+        if(g < 0) g = 0;
+        if(b < 0) b = 0;
+
         return [r, g, b];
     },
     RGB2HSV : function (RGB) {

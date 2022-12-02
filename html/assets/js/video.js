@@ -10,7 +10,7 @@ var jsnao = {
             jsnao.t[String.fromCharCode(i)] = i;
         }
         var z = Math.floor((Math.random()*10000)+1);
-        await this.subscribed_video(await video.subscribeCameras("test_z" + z, [0, 1], [0, 0], [11, 11], 30));
+        await this.subscribed_video(await video.subscribeCameras("test_z" + z, [0, 1], [0, 0], [10, 10], 30));
     },
     subscribed_video : async function(sname) {
         jsnao.sname = sname;

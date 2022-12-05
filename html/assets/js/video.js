@@ -2,47 +2,36 @@ var jsnao = {
     error: function (data) {
         console.log(data)
     },
-    display_video: async function () {
-        $('#video-button').hide(300);
-        $('#video-div-0').show(300);
-        $('#main-controls').hide(300);
-        $('#main-labels').hide(300);
-        $('#down-menu').show(300);
+    display_video: async function (camera) {
+        $('#video-button').hide(0);
+        $('#video-div').show(0);
+        $('#main-controls').hide(0);
+        $('#main-labels').hide(0);
+        $('#down-menu').show(0);
 
         jsnao.t = [];
         for (var i = 0; i < 1024; ++i) {
             jsnao.t[String.fromCharCode(i)] = i;
         }
         var z = Math.floor((Math.random() * 10000) + 1);
-        await this.subscribed_video(await video.subscribeCameras("test_z" + z, [0, 1], [0, 0], [10, 10], 5));
+        await this.subscribed_video(await video.subscribeCamera("test_z" + z, camera, 0, 10, 5));
     },
     subscribed_video: async function (sname) {
         jsnao.sname = sname;
-        await this.image_remote(await video.getImagesRemote(jsnao.sname));
+        await this.image_remote(await video.getImageRemote(jsnao.sname));
     },
     image_remote: async function (data) {
-        if (data.length > 0) {
-            var imgData = data[0];
-            if (imgData.length > 6) {
-                var idCanvas = 'video-canvas-0';
-                var imgWidth = imgData[0];
-                var imgHeight = imgData[1];
-                var imgBin = imgData[6];
-                jsnao.display_image(idCanvas, imgWidth, imgHeight, imgBin);
-            }
-        }
-        if (data.length > 1) {
-            var imgData = data[1];
-            if (imgData.length > 6) {
-                var idCanvas = 'video-canvas-1';
-                var imgWidth = imgData[0];
-                var imgHeight = imgData[1];
-                var imgBin = imgData[6];
-                jsnao.display_image(idCanvas, imgWidth, imgHeight, imgBin);
-            }
+        var imgData = data;
+        if (imgData.length > 6) {
+            var idCanvas = 'video-canvas';
+            var imgWidth = imgData[0];
+            var imgHeight = imgData[1];
+            var imgBin = imgData[6];
+            jsnao.display_image(idCanvas, imgWidth, imgHeight, imgBin);
         }
 
-        await jsnao.image_remote(await video.getImagesRemote(jsnao.sname));
+
+        await jsnao.image_remote(await video.getImageRemote(jsnao.sname));
     },
     display_image: function (idCanvas, imgWidth, imgHeight, imgBin) {
         var x = 0;
@@ -64,4 +53,13 @@ var jsnao = {
 
         context.putImageData(imageData, 0, 0);
     }
+    , displayButtons: function (){
+        $('#video-button').show(0);
+        $('#video-div').hide(0);
+        $('#main-controls').show(0);
+        $('#main-labels').show(0);
+        $('#down-menu').hide(0);
+        video.unsubscribe(jsnao.sname)
+    }
 }
+

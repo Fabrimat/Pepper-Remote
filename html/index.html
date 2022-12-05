@@ -7,6 +7,10 @@
     <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Bootstrap JS -->
+    <script src="assets/js/boostrap-js/boostrap.popper.js"></script>
+    <script src="assets/js/boostrap-js/boostrap.js"></script>
+
     <script src="/libs/qimessaging/2/qimessaging.js"></script>
     <title>Pepper Remote</title>
 </head>
@@ -41,24 +45,34 @@
 </div>
 
 <div class="d-flex justify-content-center mt-2" style="display:inline-block ;vertical-align:top;">
-    <button id="video-button" onclick="jsnao.display_video();">Camera</button>
-    <div id="video-div-0" style="display:none;background-color:#999999; width: 549px; height: 299px">
-        <canvas height="120" id="video-canvas-0" style="width: 550px;height: 300px" width="160"></canvas>
+
+    <!-- Example single danger button -->
+    <div class="btn-group">
+        <button type="button" id="video-button"  class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Camera
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item"  onclick="jsnao.display_video(0);" href="#">Camera 1</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" onclick="jsnao.display_video(1) " href="#">Camera 2</a></li>
+        </ul>
     </div>
-    <div id="video-div-1" style="display:none;background-color:#999999; width: 549px; height: 299px">
-        <canvas height="120" id="video-canvas-1" style="width: 550px;height: 300px" width="160"></canvas>
+
+
+    <div id="video-div" style="display:none;background-color:#999999; width: 549px; height: 299px" onclick="jsnao.displayButtons()">
+        <canvas height="120" id="video-canvas" style="width: 550px;height: 300px" width="160"  ></canvas>
     </div>
 </div>
 
 <div id="main-controls">
     <div class="d-flex justify-content-center ">
-        <button class="btn btn-danger m-2" id="rest-button" onclick="rest()" style="width: 114px"
+        <button class="btn btn-warning m-2" id="rest-button" onclick="rest()" style="width: 114px"
                 type="button">Rest
         </button>
         <button class="btn btn-danger m-2" id="stand-button" onclick="raiseEvent('PepperRemote/Stand', 'Stand')" style="width: 114px"
                 type="button">Stand
         </button>
-        <button class="btn btn-danger m-2" id="wakeup-button" onclick="wakeUp()" style="width: 114px"
+        <button class="btn btn-warning m-2" id="wakeup-button" onclick="wakeUp()" style="width: 114px"
                 type="button">Wake Up
         </button>
     </div>
@@ -73,17 +87,17 @@
         </div>
 
         <div class="position-absolute start-50 translate-middle-x m-3 ">
-            <h3>In-Place Rotation</h3>
+            <h3 class="d-flex justify-content-center mb-4">In-Place Rotation</h3>
             <div class="joystick" id="joy-rotation"></div>
             <div id="down-menu" style="display: none;">
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-danger m-2" id="rest-button-down" onclick="rest()" style="width: 114px"
+                    <button class="btn btn-warning m-2" id="rest-button-down" onclick="rest()" style="width: 114px"
                             type="button">Rest
                     </button>
                     <button class="btn btn-danger m-2" id="stand-button-down" onclick="raiseEvent('PepperRemote/Stand', 'Stand')" style="width: 114px"
                             type="button">Stand
                     </button>
-                    <button class="btn btn-danger m-2" id="wakeup-button-down" onclick="wakeUp()" style="width: 114px"
+                    <button class="btn btn-warning m-2" id="wakeup-button-down" onclick="wakeUp()" style="width: 114px"
                             type="button">Wake Up
                     </button>
                 </div>

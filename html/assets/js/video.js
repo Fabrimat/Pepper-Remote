@@ -5,11 +5,9 @@ var jsnao = {
     display_video: async function () {
         $('#video-button').hide(300);
         $('#video-div-0').show(300);
-        $('#stand').hide(300);
-        $('#open-hands').hide(300);
-        $('#close-hands').hide(300);
+        $('#main-controls').hide(300);
         $('#main-labels').hide(300);
-
+        $('#down-menu').show(300);
 
         jsnao.t = [];
         for (var i = 0; i < 1024; ++i) {

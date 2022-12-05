@@ -26,6 +26,15 @@ function setBlinkingLabel(value) {
     }
 }
 
+function openHands() {
+    motion.openHand("LHand");
+    motion.openHand("RHand");
+}
+function closeHands() {
+    motion.closeHand("LHand");
+    motion.closeHand("RHand");
+}
+
 setInterval(async function () {
     setAutonomous(await alive.getState(), false)
 

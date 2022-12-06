@@ -20,7 +20,6 @@
         <File name="messages" src="html/assets/js/messages.js" />
         <File name="heaven1" src="behavior_1/behavior_1/heaven1.ogg" />
         <File name="camera1" src="behavior_1/camera1.ogg" />
-        <File name="elephant" src="behavior_1/elephant.ogg" />
         <File name="vacuum1" src="behavior_1/vacuum1.ogg" />
         <File name="picture" src="html/assets/images/picture.jpg" />
         <File name="vacuum" src="html/assets/images/vacuum.jpg" />
@@ -35,11 +34,14 @@
         <File name="video" src="html/assets/js/video.js" />
         <File name="jquery-3.6.1.min" src="html/assets/js/jquery-3.6.1.min.js" />
         <File name="jquery-3.6.1.min" src="html/assets/js/jquery-3.6.1.min.map" />
-        <File name="html" src="html/.idea/html.iml" />
-        <File name="modules" src="html/.idea/modules.xml" />
-        <File name="vcs" src="html/.idea/vcs.xml" />
-        <File name="workspace" src="html/.idea/workspace.xml" />
         <File name="colorconverter" src="html/assets/js/colorconverter.js" />
+        <File name="" src=".idea/.gitignore" />
+        <File name="Remote" src=".idea/Remote.iml" />
+        <File name="discord" src=".idea/discord.xml" />
+        <File name="jsLibraryMappings" src=".idea/jsLibraryMappings.xml" />
+        <File name="modules" src=".idea/modules.xml" />
+        <File name="vcs" src=".idea/vcs.xml" />
+        <File name="workspace" src=".idea/workspace.xml" />
     </Resources>
     <Topics />
     <IgnoredPaths />

@@ -64,12 +64,28 @@
             </div>
         </div>
     </li>
+
+
+</ul>
+
+
+<ul class="list-group list-group-horizontal justify-content-center">
+
     <li class="list-group-item">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Left hand!</h5>
-                <p class="card-text">A robot that gives you his left hand!</p>
-                <a href="#" onclick="raiseEvent('PepperRemote/LeftHand', 'LeftHand')" class="btn btn-primary">Attiva</a>
+                <p class="card-text">A robot that gives his left hand!</p>
+                <a href="#" onclick="hands('raiseLeft')" class="btn btn-primary">Attiva</a>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Right hand!</h5>
+                <p class="card-text">A robot that gives his right hand!</p>
+                <a href="#" onclick="hands('raiseRight')" class="btn btn-primary">Attiva</a>
             </div>
         </div>
     </li>
@@ -77,21 +93,26 @@
     <li class="list-group-item">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Right hand!</h5>
-                <p class="card-text">A robot that gives you his right hand!</p>
-                <a href="#" onclick="raiseEvent('PepperRemote/RightHand', 'RightHand')" class="btn btn-primary">Attiva</a>
+                <h5 class="card-title">Open hands!</h5>
+                <p class="card-text">A robot that, i mean...!</p>
+                <a href="#" onclick="hands('open')" class="btn btn-primary">Attiva</a>
             </div>
         </div>
     </li>
-    <li>
-        <button class="btn btn-danger m-2" id="open-hands" onclick="openHands()" type="button">Open Hands
-        </button>
-        <button class="btn btn-danger m-2" id="close-hands" onclick="closeHands()" type="button">Close Hands
-        </button>
+
+    <li class="list-group-item">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Close hands!</h5>
+                <p class="card-text">A robot that, i mean...!</p>
+                <a href="#" onclick="hands('close')" class="btn btn-primary">Attiva</a>
+            </div>
+        </div>
     </li>
 
-</ul>
 
+
+</ul>
 
 <script src="assets/js/naoqi.js"></script>
 

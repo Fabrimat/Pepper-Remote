@@ -35,13 +35,13 @@
         <File name="jquery-3.6.1.min" src="html/assets/js/jquery-3.6.1.min.js" />
         <File name="jquery-3.6.1.min" src="html/assets/js/jquery-3.6.1.min.map" />
         <File name="colorconverter" src="html/assets/js/colorconverter.js" />
-        <File name="" src=".idea/.gitignore" />
-        <File name="Remote" src=".idea/Remote.iml" />
-        <File name="discord" src=".idea/discord.xml" />
-        <File name="jsLibraryMappings" src=".idea/jsLibraryMappings.xml" />
-        <File name="modules" src=".idea/modules.xml" />
-        <File name="vcs" src=".idea/vcs.xml" />
-        <File name="workspace" src=".idea/workspace.xml" />
+        <File name="html" src="html/.idea/html.iml" />
+        <File name="modules" src="html/.idea/modules.xml" />
+        <File name="vcs" src="html/.idea/vcs.xml" />
+        <File name="workspace" src="html/.idea/workspace.xml" />
+        <File name="move" src="behavior_1/move.pmt" />
+        <File name="golf" src="behavior_1/golf.ogg" />
+        <File name="" src="html/.idea/.gitignore" />
     </Resources>
     <Topics />
     <IgnoredPaths />

@@ -44,7 +44,6 @@ var jsnao = {
             let u = imgBin[x++];
             let v = imgBin[x++];
             let rgb = colorconv.YUV2RGB([y, u, v])
-
             imageData.data[p++] = rgb[0];
             imageData.data[p++] = rgb[1];
             imageData.data[p++] = rgb[2];

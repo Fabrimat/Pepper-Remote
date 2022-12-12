@@ -17,6 +17,9 @@ async function toggleBlinking() {
     await blinking.setEnabled(!await blink);
     setBlinkingLabel(blink);
 }
+function showSettingsOnTalbet(){
+    raiseEvent("PepperRemote/ShowInternalSettings")
+}
 
 function setBlinkingLabel(value) {
     if(value) {
@@ -26,14 +29,21 @@ function setBlinkingLabel(value) {
     }
 }
 
-function openHands() {
-    motion.openHand("LHand");
-    motion.openHand("RHand");
+function hands(data){
+    if(data === "open"){
+        motion.openHand("LHand");
+        motion.openHand("RHand");
+    }else if(data === "close"){
+        motion.closeHand("LHand");
+        motion.closeHand("RHand");
+    }else if(data === "raiseRight"){
+        raiseEvent('PepperRemote/RightHand', 'RightHand')
+    }else if(data === "raiseLeft"){
+        raiseEvent('PepperRemote/LeftHand', 'LeftHand')
+    }
+
 }
-function closeHands() {
-    motion.closeHand("LHand");
-    motion.closeHand("RHand");
-}
+
 
 setInterval(async function () {
     setAutonomous(await alive.getState(), false)

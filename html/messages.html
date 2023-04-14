@@ -89,22 +89,17 @@
         <div class="col">
             <div class="list-group">
                 <li class="list-group-item active" aria-current="true">Presets</li>
+                <div id="message-container">
 
-                <div class="input-group">
-                    <button type="button" class="form-control list-group-item list-group-item-action rounded-0">Ciao,
-                        sono Pepper
-                    </button>
 
-                    <div class="input-group-prepend">
-                        <button type="button" class="input-group list-group-item rounded-0 message-button">-</button>
+                    <div class="input-group">
+                        <input id="inputboxco" type="text" class="form-control list-group-item list-group-item-action"
+                               placeholder="Write something..." aria-label="Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <button type="button"  class="input-group list-group-item message-button" onclick="addMessage(document.getElementById('inputboxco').value);loadMessages();document.getElementById('inputboxco').value = ''">+</button>
+                        </div>
                     </div>
-                </div>
-                <div class="input-group">
-                    <input type="text" class="form-control list-group-item list-group-item-action"
-                           placeholder="Write something..." aria-label="Username" aria-describedby="basic-addon1">
-                    <div class="input-group-prepend">
-                        <button type="button" class="input-group list-group-item message-button">+</button>
-                    </div>
+
                 </div>
 
             </div>

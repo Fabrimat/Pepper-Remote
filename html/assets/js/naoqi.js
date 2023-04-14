@@ -74,7 +74,9 @@ function raiseEvent(event, data) {
 }
 
 function changeVolume(volume) {
+
     audio.setOutputVolume(volume);
+
 }
 
 function setWebView(state) {

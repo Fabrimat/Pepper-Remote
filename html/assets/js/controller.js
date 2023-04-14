@@ -66,6 +66,7 @@ function updateHeadData(data) {
 
     headData.x = Math.cos(data.angle.radian) * data.distance * moveData.force / 150;
     headData.y = Math.sin(data.angle.radian) * data.distance * moveData.force / 150;
+
 }
 
 function resetHeadData() {

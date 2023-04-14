@@ -42,6 +42,7 @@
         <File name="move" src="behavior_1/move.pmt" />
         <File name="golf" src="behavior_1/golf.ogg" />
         <File name="" src="html/.idea/.gitignore" />
+        <File name="" src="html/.idea/.name" />
     </Resources>
     <Topics />
     <IgnoredPaths />

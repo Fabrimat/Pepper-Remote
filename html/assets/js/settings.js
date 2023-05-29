@@ -1,10 +1,12 @@
 const selectAutonomous = document.getElementById("select-autonomous");
 const batteryLabel = document.getElementById("battery-label");
 const blinkingButton = document.getElementById("blinking-button");
+const breathingButton = document.getElementById("breathing-button");
 
 selectAutonomous.onchange = function (event) {
     // If the user presses the "Enter" key on the keyboard
     setAutonomous(event.target.value, true);
+
 };
 
 function setAutonomous(mode, applyOnRobot) {
@@ -17,6 +19,14 @@ async function toggleBlinking() {
     await blinking.setEnabled(!await blink);
     setBlinkingLabel(blink);
 }
+
+async function toggleBreathing() {
+    const breath = await motion.getBreathEnabled("All");
+    await motion.setBreathEnabled("All", !await breath)
+    setBreathingLabel(breath);
+
+}
+
 function showSettingsOnTalbet(){
     raiseEvent("PepperRemote/ShowInternalSettings")
 }
@@ -26,6 +36,14 @@ function setBlinkingLabel(value) {
         blinkingButton.innerHTML = "Disable blinking";
     } else {
         blinkingButton.innerHTML = "Enable blinking";
+    }
+}
+
+function setBreathingLabel(value) {
+    if(value) {
+        breathingButton.innerHTML = "Disable breathing";
+    } else {
+        breathingButton.innerHTML = "Enable breathing";
     }
 }
 
@@ -51,4 +69,6 @@ setInterval(async function () {
     batteryLabel.innerHTML = "Battery: " + await battery.getBatteryCharge() + " %";
 
     setBlinkingLabel(await blinking.isEnabled());
+    setBreathingLabel(await motion.getBreathEnabled("All"));
+
 }, 500);

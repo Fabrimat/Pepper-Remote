@@ -2,7 +2,9 @@
 
 Remote Controller for Pepper Robot.
 
-Project state: **Alpha**
+Project state: **Alpha** - Discontinued
+ <img width="1633" height="1024" alt="immagine" src="https://github.com/user-attachments/assets/0b77cbdf-51ae-4369-9336-f620aabf2eea" />
+
 
 #### Main contributors:
 - Fabrizio La Rosa - [Github](https://github.com/Fabrimat) [Telegram](https://t.me/fabriziolarosa)
@@ -13,3 +15,4 @@ With a special thanks to [IIS Verona Trento](http://veronatrento.it) of Messina 
 #### Libraries used:
 - [Nipplejs](https://github.com/yoannmoinet/nipplejs)
 - [ColorConverter.js](https://github.com/SimonWaldherr/ColorConverter.js)
+-
